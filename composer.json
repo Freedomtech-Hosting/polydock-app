@@ -1,0 +1,20 @@
+{
+    "name": "freedomtech-hosting/polydock-app",
+    "description": "Library for Polydock Apps",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FreedomtechHosting\\PolydockApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bryan Gruneberg",
+            "email": "hello@bryangruneberg.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+    }
+}
