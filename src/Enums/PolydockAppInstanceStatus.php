@@ -19,6 +19,7 @@ enum PolydockAppInstanceStatus: string
     case PRE_DEPLOY_COMPLETED = 'pre-deploy-completed';
     case PRE_DEPLOY_FAILED = 'pre-deploy-failed';
     
+    case PENDING_DEPLOY = 'pending-deploy';
     case DEPLOY_RUNNING = 'deploy-running';
     case DEPLOY_COMPLETED = 'deploy-completed';
     case DEPLOY_FAILED = 'deploy-failed';
