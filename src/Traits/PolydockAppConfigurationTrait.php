@@ -3,6 +3,7 @@
 namespace FreedomtechHosting\PolydockApp\Traits;
 
 use FreedomtechHosting\PolydockApp\PolydockAppInterface;
+
 trait PolydockAppConfigurationTrait
 {
    /**
@@ -66,5 +67,5 @@ trait PolydockAppConfigurationTrait
    {
      return $this->isValidated;
    }
-}
-}   
+  }
+   

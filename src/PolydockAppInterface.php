@@ -7,14 +7,15 @@ interface PolydockAppInterface
     /**
      * Initialize a new app instance with fundamental properties
      * @param string $appName The name of the app
-     * @param string $appVersion The version number
      * @param string $appDescription Description of the app
      * @param string $appAuthor Name of the author/creator
      * @param string $appWebsite Website URL for the app
      * @param string $appSupportEmail Support email address
+     * @param array $appConfiguration Optional configuration settings
      */
-    public function __construct(string $appName, string $appVersion, string $appDescription, string $appAuthor, string $appWebsite, string $appSupportEmail);
+    public function __construct(string $appName, string $appDescription, string $appAuthor, string $appWebsite, string $appSupportEmail, array $appConfiguration = []);
 
+    
     /**
      * Get the name of the app
      * @return string The app name
@@ -32,14 +33,7 @@ interface PolydockAppInterface
      * Get the version of the app
      * @return string The app version
      */
-    public function getAppVersion(): string;
-
-    /**
-     * Set the version of the app
-     * @param string $appVersion The version to set
-     * @return PolydockAppInterface Returns the instance for method chaining
-     */
-    public function setAppVersion(string $appVersion): PolydockAppInterface;
+    public static function getAppVersion(): string;
 
     /**
      * Get the description of the app

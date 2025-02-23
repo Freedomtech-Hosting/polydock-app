@@ -8,12 +8,7 @@ use FreedomtechHosting\PolydockApp\Traits\PolydockAppConfigurationTrait;
 abstract class PolydockAppBase implements PolydockAppInterface
 {   
     protected string $appName;
-    /**
-     * The version number of the app
-     * @var string
-     */
-    protected string $appVersion;
-
+    
     /**
      * A description of what the app does
      * @var string
@@ -56,17 +51,15 @@ abstract class PolydockAppBase implements PolydockAppInterface
     /**
      * Initialize a new app instance with fundamental properties
      * @param string $appName The name of the app
-     * @param string $appVersion The version number
      * @param string $appDescription Description of the app
      * @param string $appAuthor Name of the author/creator
      * @param string $appWebsite Website URL for the app
      * @param string $appSupportEmail Support email address
      * @param array $appConfiguration Optional configuration settings
      */
-    final public function __construct($appName, $appVersion, $appDescription, $appAuthor, $appWebsite, $appSupportEmail, $appConfiguration = [])
+    final public function __construct($appName, $appDescription, $appAuthor, $appWebsite, $appSupportEmail, array $appConfiguration = [])
     {
         $this->setAppName($appName)
-            ->setAppVersion($appVersion)
             ->setAppDescription($appDescription)
             ->setAppAuthor($appAuthor)
             ->setAppWebsite($appWebsite)
@@ -84,13 +77,13 @@ abstract class PolydockAppBase implements PolydockAppInterface
      * @throws PolydockAppValidationException if any required property is empty
      * @return PolydockAppInterface Returns the instance for method chaining
      */
-    final private function validateAppFundamentals(): PolydockAppInterface
+    private function validateAppFundamentals(): PolydockAppInterface
     {
         if(empty($this->appName)) {
             throw new PolydockAppValidationException('App name is required');
         }
 
-        if(empty($this->appVersion)) {
+        if(empty($this::getAppVersion())) {
             throw new PolydockAppValidationException('App version is required');
         }
 

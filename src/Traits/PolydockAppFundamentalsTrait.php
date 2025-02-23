@@ -25,25 +25,6 @@ trait PolydockAppFundamentalsTrait
         return $this;
     }
     
-    /**
-     * Get the version of the app
-     * @return string The app version
-     */
-    public function getAppVersion(): string
-    {
-        return $this->appVersion;
-    }
-
-    /**
-     * Set the version of the app
-     * @param string $appVersion The version to set
-     * @return PolydockAppInterface Returns the instance for method chaining
-     */
-    public function setAppVersion(string $appVersion): PolydockAppInterface
-    {
-        $this->appVersion = $appVersion;
-        return $this;
-    }
 
     /**
      * Get the description of the app
