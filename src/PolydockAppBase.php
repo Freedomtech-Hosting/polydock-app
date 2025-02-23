@@ -4,9 +4,23 @@ namespace FreedomtechHosting\PolydockApp;
 
 use FreedomtechHosting\PolydockApp\Traits\PolydockAppFundamentalsTrait;
 use FreedomtechHosting\PolydockApp\Traits\PolydockAppConfigurationTrait;
+use FreedomtechHosting\PolydockApp\Traits\PolydockAppLoggerTrait;
 
 abstract class PolydockAppBase implements PolydockAppInterface
 {   
+    /**
+     * The engine instance
+     * @var PolydockEngineInterface
+     */
+    protected PolydockEngineInterface $engine;
+
+    /**
+     * The logger instance
+     * @var PolydockAppLoggerInterface
+     */
+    protected PolydockAppLoggerInterface $logger;
+
+    
     protected string $appName;
     
     /**
@@ -47,6 +61,7 @@ abstract class PolydockAppBase implements PolydockAppInterface
 
     use PolydockAppFundamentalsTrait;
     use PolydockAppConfigurationTrait;
+    use PolydockAppLoggerTrait;
 
     /**
      * Initialize a new app instance with fundamental properties
@@ -59,6 +74,9 @@ abstract class PolydockAppBase implements PolydockAppInterface
      */
     final public function __construct($appName, $appDescription, $appAuthor, $appWebsite, $appSupportEmail, array $appConfiguration = [])
     {
+        // Initialize logger using the trait method
+        $this->initializeLogger();
+
         $this->setAppName($appName)
             ->setAppDescription($appDescription)
             ->setAppAuthor($appAuthor)
@@ -105,6 +123,17 @@ abstract class PolydockAppBase implements PolydockAppInterface
 
         $this->isValidated = true;
         
+        return $this;
+    }
+
+    public function getEngine(): PolydockEngineInterface
+    {
+        return $this->engine;
+    }
+
+    public function setEngine(PolydockEngineInterface $engine): self
+    {
+        $this->engine = $engine;
         return $this;
     }
 }

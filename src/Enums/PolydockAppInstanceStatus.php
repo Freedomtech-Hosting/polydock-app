@@ -9,6 +9,12 @@ enum PolydockAppInstanceStatus: string
     case PRE_CREATE_COMPLETED = 'pre-create-completed';
     case PRE_CREATE_FAILED = 'pre-create-failed';
 
+
+    case PENDING_CREATE = 'pending-create';
+    case CREATE_RUNNING = 'create-running';
+    case CREATE_COMPLETED = 'create-completed';
+    case CREATE_FAILED = 'create-failed';
+
     case PENDING_POST_CREATE = 'pending-post-create';
     case POST_CREATE_RUNNING = 'post-create-running';
     case POST_CREATE_COMPLETED = 'post-create-completed';
@@ -34,6 +40,11 @@ enum PolydockAppInstanceStatus: string
     case PRE_REMOVE_COMPLETED = 'pre-remove-completed';
     case PRE_REMOVE_FAILED = 'pre-remove-failed';
 
+    case PENDING_REMOVE = 'pending-remove';
+    case REMOVE_RUNNING = 'remove-running';
+    case REMOVE_COMPLETED = 'remove-completed';
+    case REMOVE_FAILED = 'remove-failed';
+
     case PENDING_POST_REMOVE = 'pending-post-remove';
     case POST_REMOVE_RUNNING = 'post-remove-running';
     case POST_REMOVE_COMPLETED = 'post-remove-completed';
@@ -48,6 +59,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_CREATE_RUNNING => 'Pre-Create Running',
             self::PRE_CREATE_COMPLETED => 'Pre-Create Completed',
             self::PRE_CREATE_FAILED => 'Pre-Create Failed',
+            self::PENDING_CREATE => 'Pending Create',
+            self::CREATE_RUNNING => 'Create Running',
+            self::CREATE_COMPLETED => 'Create Completed',
+            self::CREATE_FAILED => 'Create Failed',
             self::PENDING_POST_CREATE => 'Pending Post-Create',
             self::POST_CREATE_RUNNING => 'Post-Create Running',
             self::POST_CREATE_COMPLETED => 'Post-Create Completed',
@@ -56,6 +71,7 @@ enum PolydockAppInstanceStatus: string
             self::PRE_DEPLOY_RUNNING => 'Pre-Deploy Running',
             self::PRE_DEPLOY_COMPLETED => 'Pre-Deploy Completed',
             self::PRE_DEPLOY_FAILED => 'Pre-Deploy Failed',
+            self::PENDING_DEPLOY => 'Pending Deploy',
             self::DEPLOY_RUNNING => 'Deploy Running',
             self::DEPLOY_COMPLETED => 'Deploy Completed',
             self::DEPLOY_FAILED => 'Deploy Failed',
@@ -67,6 +83,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_REMOVE_RUNNING => 'Pre-Remove Running',
             self::PRE_REMOVE_COMPLETED => 'Pre-Remove Completed',
             self::PRE_REMOVE_FAILED => 'Pre-Remove Failed',
+            self::PENDING_REMOVE => 'Pending Remove',
+            self::REMOVE_RUNNING => 'Remove Running',
+            self::REMOVE_COMPLETED => 'Remove Completed',
+            self::REMOVE_FAILED => 'Remove Failed',
             self::PENDING_POST_REMOVE => 'Pending Post-Remove',
             self::POST_REMOVE_RUNNING => 'Post-Remove Running',   
             self::POST_REMOVE_COMPLETED => 'Post-Remove Completed',
@@ -82,6 +102,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_CREATE_RUNNING => 'bg-yellow-500',
             self::PRE_CREATE_COMPLETED => 'bg-green-500',   
             self::PRE_CREATE_FAILED => 'bg-red-500',
+            self::PENDING_CREATE => 'bg-yellow-500',
+            self::CREATE_RUNNING => 'bg-yellow-500',
+            self::CREATE_COMPLETED => 'bg-green-500',
+            self::CREATE_FAILED => 'bg-red-500',
             self::PENDING_POST_CREATE => 'bg-yellow-500',
             self::POST_CREATE_RUNNING => 'bg-yellow-500',
             self::POST_CREATE_COMPLETED => 'bg-green-500',
@@ -90,6 +114,7 @@ enum PolydockAppInstanceStatus: string
             self::PRE_DEPLOY_RUNNING => 'bg-yellow-500',
             self::PRE_DEPLOY_COMPLETED => 'bg-green-500',
             self::PRE_DEPLOY_FAILED => 'bg-red-500',
+            self::PENDING_DEPLOY => 'bg-yellow-500',
             self::DEPLOY_RUNNING => 'bg-yellow-500',
             self::DEPLOY_COMPLETED => 'bg-green-500',
             self::DEPLOY_FAILED => 'bg-red-500',
@@ -101,6 +126,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_REMOVE_RUNNING => 'bg-yellow-500',
             self::PRE_REMOVE_COMPLETED => 'bg-green-500',
             self::PRE_REMOVE_FAILED => 'bg-red-500',
+            self::PENDING_REMOVE => 'bg-yellow-500',
+            self::REMOVE_RUNNING => 'bg-yellow-500',
+            self::REMOVE_COMPLETED => 'bg-green-500',
+            self::REMOVE_FAILED => 'bg-red-500',
             self::PENDING_POST_REMOVE => 'bg-yellow-500',
             self::POST_REMOVE_RUNNING => 'bg-yellow-500',
             self::POST_REMOVE_COMPLETED => 'bg-green-500',
@@ -116,6 +145,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_CREATE_RUNNING => 'pre-create-running',
             self::PRE_CREATE_COMPLETED => 'pre-create-completed',
             self::PRE_CREATE_FAILED => 'pre-create-failed',
+            self::PENDING_CREATE => 'pending-create',
+            self::CREATE_RUNNING => 'create-running',
+            self::CREATE_COMPLETED => 'create-completed',
+            self::CREATE_FAILED => 'create-failed',
             self::PENDING_POST_CREATE => 'pending-post-create',
             self::POST_CREATE_RUNNING => 'post-create-running',
             self::POST_CREATE_COMPLETED => 'post-create-completed',
@@ -124,6 +157,7 @@ enum PolydockAppInstanceStatus: string
             self::PRE_DEPLOY_RUNNING => 'pre-deploy-running',
             self::PRE_DEPLOY_COMPLETED => 'pre-deploy-completed',
             self::PRE_DEPLOY_FAILED => 'pre-deploy-failed',
+            self::PENDING_DEPLOY => 'pending-deploy',
             self::DEPLOY_RUNNING => 'deploy-running',
             self::DEPLOY_COMPLETED => 'deploy-completed',
             self::DEPLOY_FAILED => 'deploy-failed',
@@ -135,6 +169,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_REMOVE_RUNNING => 'pre-remove-running',
             self::PRE_REMOVE_COMPLETED => 'pre-remove-completed',
             self::PRE_REMOVE_FAILED => 'pre-remove-failed',
+            self::PENDING_REMOVE => 'pending-remove',
+            self::REMOVE_RUNNING => 'remove-running',
+            self::REMOVE_COMPLETED => 'remove-completed',
+            self::REMOVE_FAILED => 'remove-failed',
             self::PENDING_POST_REMOVE => 'pending-post-remove',
             self::POST_REMOVE_RUNNING => 'post-remove-running',
             self::POST_REMOVE_COMPLETED => 'post-remove-completed',
@@ -150,6 +188,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_CREATE_RUNNING => 'Pre-Create Running',
             self::PRE_CREATE_COMPLETED => 'Pre-Create Completed',
             self::PRE_CREATE_FAILED => 'Pre-Create Failed',
+            self::PENDING_CREATE => 'Pending Create',
+            self::CREATE_RUNNING => 'Create Running',
+            self::CREATE_COMPLETED => 'Create Completed',
+            self::CREATE_FAILED => 'Create Failed',
             self::PENDING_POST_CREATE => 'Pending Post-Create',
             self::POST_CREATE_RUNNING => 'Post-Create Running',
             self::POST_CREATE_COMPLETED => 'Post-Create Completed',
@@ -158,6 +200,7 @@ enum PolydockAppInstanceStatus: string
             self::PRE_DEPLOY_RUNNING => 'Pre-Deploy Running',
             self::PRE_DEPLOY_COMPLETED => 'Pre-Deploy Completed',
             self::PRE_DEPLOY_FAILED => 'Pre-Deploy Failed',
+            self::PENDING_DEPLOY => 'Pending Deploy',
             self::DEPLOY_RUNNING => 'Deploy Running',
             self::DEPLOY_COMPLETED => 'Deploy Completed',
             self::DEPLOY_FAILED => 'Deploy Failed',
@@ -169,6 +212,10 @@ enum PolydockAppInstanceStatus: string
             self::PRE_REMOVE_RUNNING => 'Pre-Remove Running',
             self::PRE_REMOVE_COMPLETED => 'Pre-Remove Completed',
             self::PRE_REMOVE_FAILED => 'Pre-Remove Failed',
+            self::PENDING_REMOVE => 'Pending Remove',
+            self::REMOVE_RUNNING => 'Remove Running',
+            self::REMOVE_COMPLETED => 'Remove Completed',
+            self::REMOVE_FAILED => 'Remove Failed',
             self::PENDING_POST_REMOVE => 'Pending Post-Remove',
             self::POST_REMOVE_RUNNING => 'Post-Remove Running',
             self::POST_REMOVE_COMPLETED => 'Post-Remove Completed',

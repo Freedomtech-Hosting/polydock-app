@@ -136,6 +136,13 @@ interface PolydockAppInterface
     public function preCreateAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
 
     /**
+     * Create an app instance
+     * @param PolydockAppInstanceInterface $appInstance The app instance to create
+     * @return PolydockAppInstanceInterface The created app instance
+     */
+    public function createAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
      * Execute post-create actions for an app instance
      * @param PolydockAppInstanceInterface $appInstance The app instance to process
      * @return PolydockAppInstanceInterface The processed app instance
@@ -148,6 +155,13 @@ interface PolydockAppInterface
      * @return PolydockAppInstanceInterface The processed app instance
      */
     public function preDeployAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
+     * Deploy an app instance
+     * @param PolydockAppInstanceInterface $appInstance The app instance to deploy
+     * @return PolydockAppInstanceInterface The processed app instance
+     */
+    public function deployAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
 
     /**
      * Execute post-deploy actions for an app instance
@@ -164,9 +178,74 @@ interface PolydockAppInterface
     public function preRemoveAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
 
     /**
+     * Remove an app instance
+     * @param PolydockAppInstanceInterface $appInstance The app instance to remove
+     * @return PolydockAppInstanceInterface The processed app instance
+     */
+    public function removeAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
      * Execute post-remove actions for an app instance
      * @param PolydockAppInstanceInterface $appInstance The app instance to process
      * @return PolydockAppInstanceInterface The processed app instance
      */
     public function postRemoveAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
+     * Set the logger instance
+     * @param PolydockAppLoggerInterface $logger The logger instance
+     * @return self Returns the instance for method chaining
+     */
+    public function setLogger(PolydockAppLoggerInterface $logger): self;
+
+    /**
+     * Get the logger instance
+     * @return PolydockAppLoggerInterface The logger instance
+     */
+    public function getLogger(): PolydockAppLoggerInterface;
+
+    /**
+     * Log an informational message
+     * @param string $message The message to log
+     * @param array $context Additional context data for the log entry
+     * @return self Returns the instance for method chaining
+     */
+    public function info(string $message, array $context = []): self;
+
+    /**
+     * Log an error message
+     * @param string $message The message to log
+     * @param array $context Additional context data for the log entry
+     * @return self Returns the instance for method chaining
+     */
+    public function error(string $message, array $context = []): self;
+
+    /**
+     * Log a warning message
+     * @param string $message The message to log
+     * @param array $context Additional context data for the log entry
+     * @return self Returns the instance for method chaining
+     */
+    public function warning(string $message, array $context = []): self;
+
+    /**
+     * Log a debug message
+     * @param string $message The message to log
+     * @param array $context Additional context data for the log entry
+     * @return self Returns the instance for method chaining
+     */
+    public function debug(string $message, array $context = []): self;
+
+    /**
+     * Set the engine instance
+     * @param PolydockEngineInterface $engine The engine instance
+     * @return self Returns the instance for method chaining
+     */
+    public function setEngine(PolydockEngineInterface $engine): self;
+
+    /**
+     * Get the engine instance
+     * @return PolydockEngineInterface The engine instance
+     */
+    public function getEngine(): PolydockEngineInterface;
 }
