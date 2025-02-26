@@ -70,9 +70,8 @@ abstract class PolydockAppBase implements PolydockAppInterface
      * @param string $appAuthor Name of the author/creator
      * @param string $appWebsite Website URL for the app
      * @param string $appSupportEmail Support email address
-     * @param array $appConfiguration Optional configuration settings
      */
-    final public function __construct($appName, $appDescription, $appAuthor, $appWebsite, $appSupportEmail, array $appConfiguration = [])
+    final public function __construct($appName, $appDescription, $appAuthor, $appWebsite, $appSupportEmail)
     {
         // Initialize logger using the trait method
         $this->initializeLogger();
@@ -82,10 +81,6 @@ abstract class PolydockAppBase implements PolydockAppInterface
             ->setAppAuthor($appAuthor)
             ->setAppWebsite($appWebsite)
             ->setAppSupportEmail($appSupportEmail);
-
-        if(sizeof($appConfiguration) > 0) { 
-            $this->setAppConfiguration($appConfiguration);
-        }
 
         $this->validateAppFundamentals();
     }

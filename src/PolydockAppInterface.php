@@ -11,9 +11,8 @@ interface PolydockAppInterface
      * @param string $appAuthor Name of the author/creator
      * @param string $appWebsite Website URL for the app
      * @param string $appSupportEmail Support email address
-     * @param array $appConfiguration Optional configuration settings
      */
-    public function __construct(string $appName, string $appDescription, string $appAuthor, string $appWebsite, string $appSupportEmail, array $appConfiguration = []);
+    public function __construct(string $appName, string $appDescription, string $appAuthor, string $appWebsite, string $appSupportEmail);
 
     
     /**
@@ -86,41 +85,6 @@ interface PolydockAppInterface
      * @return PolydockAppInterface Returns the instance for method chaining
      */
     public function setAppSupportEmail(string $appSupportEmail): PolydockAppInterface;
-
-    /**
-     * Set the entire app configuration array
-     * @param array $appConfiguration The configuration array to set
-     * @return PolydockAppInterface Returns the instance for method chaining
-     */
-    public function setAppConfiguration(array $appConfiguration): PolydockAppInterface;
-
-    /**
-     * Get the entire app configuration array
-     * @return array The current configuration array
-     */
-    public function getAppConfiguration(): array;
-    
-    /**
-     * Set a specific configuration value by key
-     * @param string $key The configuration key to set
-     * @param string $value The value to set for the key
-     * @return PolydockAppInterface Returns the instance for method chaining
-     */
-    public function setAppConfigurationValue(string $key, string $value): PolydockAppInterface;
-
-    /**
-     * Get a specific configuration value by key
-     * @param string $key The configuration key to retrieve
-     * @return string The configuration value, or empty string if not found
-     */
-    public function getAppConfigurationValue(string $key): string;
-
-    /**
-     * Remove a configuration value by key
-     * @param string $key The configuration key to remove
-     * @return PolydockAppInterface Returns the instance for method chaining
-     */
-    public function unsetAppConfigurationValue(string $key): PolydockAppInterface;
 
     /**
      * Check if the app configuration has been validated
