@@ -59,6 +59,12 @@ abstract class PolydockAppBase implements PolydockAppInterface
      */
     private bool $isValidated = false;
 
+    /**
+     * Array of variable definitions
+     * @var array<PolydockAppVariableDefinitionInterface>
+     */
+    protected array $variableDefinitions = [];
+
     use PolydockAppFundamentalsTrait;
     use PolydockAppConfigurationTrait;
     use PolydockAppLoggerTrait;
@@ -70,8 +76,9 @@ abstract class PolydockAppBase implements PolydockAppInterface
      * @param string $appAuthor Name of the author/creator
      * @param string $appWebsite Website URL for the app
      * @param string $appSupportEmail Support email address
+     * @param array $variableDefinitions Array of variable definitions
      */
-    final public function __construct($appName, $appDescription, $appAuthor, $appWebsite, $appSupportEmail)
+    final public function __construct($appName, $appDescription, $appAuthor, $appWebsite, $appSupportEmail, array $variableDefinitions = [])
     {
         // Initialize logger using the trait method
         $this->initializeLogger();
@@ -82,7 +89,31 @@ abstract class PolydockAppBase implements PolydockAppInterface
             ->setAppWebsite($appWebsite)
             ->setAppSupportEmail($appSupportEmail);
 
+        foreach($variableDefinitions as $variableDefinition) {
+            if(!$variableDefinition instanceof PolydockAppVariableDefinitionInterface) {
+                throw new PolydockAppValidationException('Variable definition must implement PolydockAppVariableDefinitionInterface');
+            }
+                 
+            $this->addVariableDefinition($variableDefinition);
+        }
+
         $this->validateAppFundamentals();
+    }
+
+    public function addVariableDefinition(PolydockAppVariableDefinitionInterface $variableDefinition): self
+    {
+        $this->variableDefinitions[$variableDefinition->getStorageKey()] = $variableDefinition;
+        return $this;
+    }
+    
+    public function getVariableDefinitions(): array
+    {
+        return $this->variableDefinitions;
+    }
+
+    public function getVariableDefinition(string $storageKey): ?PolydockAppVariableDefinitionInterface
+    {
+        return $this->variableDefinitions[$storageKey] ?? null;
     }
 
     /**

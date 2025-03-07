@@ -56,4 +56,11 @@ interface PolydockEngineInterface
      * @return PolydockServiceProviderInterface The service provider instance
      */
     public function getPolydockServiceProviderSingletonInstance(string $serviceProviderName): PolydockServiceProviderInterface;
+
+    /**
+     * Validate that an app instance has all required variables
+     * @param PolydockAppInstanceInterface $appInstance The app instance to validate
+     * @return bool True if the app instance has all required variables, false otherwise
+     */
+    public function validateAppInstanceHasAllRequiredVariables(PolydockAppInstanceInterface $appInstance): bool;
 } 

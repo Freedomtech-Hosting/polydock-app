@@ -12,9 +12,28 @@ interface PolydockAppInterface
      * @param string $appWebsite Website URL for the app
      * @param string $appSupportEmail Support email address
      */
-    public function __construct(string $appName, string $appDescription, string $appAuthor, string $appWebsite, string $appSupportEmail);
+    public function __construct(string $appName, string $appDescription, string $appAuthor, string $appWebsite, string $appSupportEmail, array $variableDefinitions = []);
 
-    
+    /**
+     * Add a variable definition to the app
+     * @param PolydockAppVariableDefinitionInterface $variableDefinition The variable definition to add
+     * @return self Returns the instance for method chaining
+     */
+    public function addVariableDefinition(PolydockAppVariableDefinitionInterface $variableDefinition): self;
+
+    /**
+     * Get all variable definitions for the app
+     * @return array<PolydockAppVariableDefinitionInterface> The variable definitions
+     */
+    public function getVariableDefinitions(): array;
+
+    /**
+     * Get a variable definition by its storage key
+     * @param string $storageKey The storage key of the variable definition
+     * @return PolydockAppVariableDefinitionInterface|null The variable definition or null if not found
+     */
+    public function getVariableDefinition(string $storageKey): ?PolydockAppVariableDefinitionInterface;
+
     /**
      * Get the name of the app
      * @return string The app name
