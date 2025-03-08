@@ -2,6 +2,7 @@
 
 namespace FreedomtechHosting\PolydockApp\Traits;
 
+use FreedomtechHosting\PolydockApp\Loggers\PolydockAppCacheLogger;
 use FreedomtechHosting\PolydockApp\PolydockAppLoggerInterface;
 use FreedomtechHosting\PolydockApp\Loggers\PolydockAppEchoLogger;
 
@@ -14,6 +15,14 @@ trait PolydockAppLoggerTrait
      */
     public function setLogger(PolydockAppLoggerInterface $logger): self
     {
+        if($this->logger instanceof PolydockAppCacheLogger && !($logger instanceof PolydockAppEchoLogger)) {
+            $logger->debug("Flushing cache logger...");
+            foreach($this->logger->getLogMessages() as $logMessage) {
+                $logger->{$logMessage['level']}($logMessage['message'], $logMessage['context']);
+            }
+            $logger->debug("Cache logger flushed.");
+        }
+
         $this->logger = $logger;
         return $this;
     }
@@ -76,11 +85,12 @@ trait PolydockAppLoggerTrait
     }
 
     /**
-     * Initialize the logger with a provided logger or default EchoLogger if not provided
+     * Initialize the logger with a provided logger or default CacheLogger if not provided
+     * The CacheLogger is used to cache log messages in a variable until an actual logger is set
      * @param PolydockAppLoggerInterface|null $logger Optional logger instance
      */
     protected function initializeLogger(?PolydockAppLoggerInterface $logger = null): void
     {
-        $this->logger = $logger ?? new PolydockAppEchoLogger();
+        $this->logger = $logger ?? new PolydockAppCacheLogger();
     }
 } 
