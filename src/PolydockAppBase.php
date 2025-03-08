@@ -89,12 +89,27 @@ abstract class PolydockAppBase implements PolydockAppInterface
             ->setAppWebsite($appWebsite)
             ->setAppSupportEmail($appSupportEmail);
 
+        foreach(self::getAppDefaultVariableDefinitions() as $variableDefinition) {
+            if(!$variableDefinition instanceof PolydockAppVariableDefinitionInterface) {
+                throw new PolydockAppValidationException('Variable definition must implement PolydockAppVariableDefinitionInterface');
+            }
+
+            $this->info('Adding default variable definition ' . $variableDefinition->getName());
+            $this->addVariableDefinition($variableDefinition);
+        }
+
         foreach($variableDefinitions as $variableDefinition) {
             if(!$variableDefinition instanceof PolydockAppVariableDefinitionInterface) {
                 throw new PolydockAppValidationException('Variable definition must implement PolydockAppVariableDefinitionInterface');
             }
-                 
-            $this->addVariableDefinition($variableDefinition);
+
+            if(! $this->getVariableDefinition($variableDefinition->getName())) {
+                $this->info('Adding constructor variable definition ' . $variableDefinition->getName());
+                $this->addVariableDefinition($variableDefinition);
+            } else {
+                $this->warning('Variable definition ' . $variableDefinition->getName() . ' already exists, overwriting');
+                $this->addVariableDefinition($variableDefinition);
+            }
         }
 
         $this->validateAppFundamentals();
@@ -102,6 +117,10 @@ abstract class PolydockAppBase implements PolydockAppInterface
 
     public function addVariableDefinition(PolydockAppVariableDefinitionInterface $variableDefinition): self
     {
+        if($this->getVariableDefinition($variableDefinition->getName())) {
+            unset($this->variableDefinitions[$variableDefinition->getName()]);
+        }
+
         $this->variableDefinitions[$variableDefinition->getName()] = $variableDefinition;
         return $this;
     }
