@@ -89,7 +89,7 @@ abstract class PolydockAppBase implements PolydockAppInterface
             ->setAppWebsite($appWebsite)
             ->setAppSupportEmail($appSupportEmail);
 
-        foreach(self::getAppDefaultVariableDefinitions() as $variableDefinition) {
+        foreach(static::getAppDefaultVariableDefinitions() as $variableDefinition) {
             if(!$variableDefinition instanceof PolydockAppVariableDefinitionInterface) {
                 throw new PolydockAppValidationException('Variable definition must implement PolydockAppVariableDefinitionInterface');
             }
