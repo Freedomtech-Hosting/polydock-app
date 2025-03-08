@@ -102,7 +102,7 @@ abstract class PolydockAppBase implements PolydockAppInterface
 
     public function addVariableDefinition(PolydockAppVariableDefinitionInterface $variableDefinition): self
     {
-        $this->variableDefinitions[$variableDefinition->getStorageKey()] = $variableDefinition;
+        $this->variableDefinitions[$variableDefinition->getName()] = $variableDefinition;
         return $this;
     }
     
@@ -111,9 +111,9 @@ abstract class PolydockAppBase implements PolydockAppInterface
         return $this->variableDefinitions;
     }
 
-    public function getVariableDefinition(string $storageKey): ?PolydockAppVariableDefinitionInterface
+    public function getVariableDefinition(string $name): ?PolydockAppVariableDefinitionInterface
     {
-        return $this->variableDefinitions[$storageKey] ?? null;
+        return $this->variableDefinitions[$name] ?? null;
     }
 
     /**
