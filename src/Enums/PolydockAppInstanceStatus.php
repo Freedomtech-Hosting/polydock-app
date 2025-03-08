@@ -4,6 +4,8 @@ namespace FreedomtechHosting\PolydockApp\Enums;
 
 enum PolydockAppInstanceStatus: string
 {
+    case NEW = 'new';
+
     case PENDING_PRE_CREATE = 'pending-pre-create';
     case PRE_CREATE_RUNNING = 'pre-create-running';
     case PRE_CREATE_COMPLETED = 'pre-create-completed';
@@ -55,6 +57,7 @@ enum PolydockAppInstanceStatus: string
     public function getStatusMessage(): string
     {
         return match ($this) {
+            self::NEW => 'New',
             self::PENDING_PRE_CREATE => 'Pending Pre-Create',   
             self::PRE_CREATE_RUNNING => 'Pre-Create Running',
             self::PRE_CREATE_COMPLETED => 'Pre-Create Completed',
@@ -98,6 +101,7 @@ enum PolydockAppInstanceStatus: string
     public function getStatusColor(): string
     {
         return match ($this) {
+            self::NEW => 'bg-gray-500',
             self::PENDING_PRE_CREATE => 'bg-yellow-500',
             self::PRE_CREATE_RUNNING => 'bg-yellow-500',
             self::PRE_CREATE_COMPLETED => 'bg-green-500',   
@@ -141,6 +145,7 @@ enum PolydockAppInstanceStatus: string
     public function getStatusIcon(): string
     {
         return match ($this) {
+            self::NEW => 'new',
             self::PENDING_PRE_CREATE => 'pending-pre-create',
             self::PRE_CREATE_RUNNING => 'pre-create-running',
             self::PRE_CREATE_COMPLETED => 'pre-create-completed',
@@ -184,6 +189,7 @@ enum PolydockAppInstanceStatus: string
     public function getStatusDescription(): string
     {
         return match ($this) {
+            self::NEW => 'New',
             self::PENDING_PRE_CREATE => 'Pending Pre-Create',
             self::PRE_CREATE_RUNNING => 'Pre-Create Running',
             self::PRE_CREATE_COMPLETED => 'Pre-Create Completed',
