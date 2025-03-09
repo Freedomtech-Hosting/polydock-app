@@ -278,19 +278,19 @@ interface PolydockAppInterface
      * @param PolydockAppInstanceInterface $appInstance The app instance to poll
      * @return PolydockAppInstanceStatus The status of the app instance
      */
-    public function pollAppInstanceDeploymentProgress(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceStatus;
+    public function pollAppInstanceDeploymentProgress(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
 
     /**
      * Poll the app instance upgrade progress
      * @param PolydockAppInstanceInterface $appInstance The app instance to poll
      * @return PolydockAppInstanceStatus The status of the app instance
      */
-    public function pollAppInstanceUpgradeProgress(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceStatus;
+    public function pollAppInstanceUpgradeProgress(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
     
     /**
      * Poll the app instance health status
      * @param PolydockAppInstanceInterface $appInstance The app instance to poll
      * @return PolydockAppInstanceStatus The status of the app instance
      */
-    public function pollAppInstanceHealthStatus(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceStatus;
+    public function pollAppInstanceHealthStatus(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
 }
