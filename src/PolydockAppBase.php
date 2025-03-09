@@ -2,6 +2,7 @@
 
 namespace FreedomtechHosting\PolydockApp;
 
+use FreedomtechHosting\PolydockApp\Enums\PolydockAppInstanceStatus;
 use FreedomtechHosting\PolydockApp\Traits\PolydockAppFundamentalsTrait;
 use FreedomtechHosting\PolydockApp\Traits\PolydockAppConfigurationTrait;
 use FreedomtechHosting\PolydockApp\Traits\PolydockAppLoggerTrait;
@@ -180,5 +181,24 @@ abstract class PolydockAppBase implements PolydockAppInterface
     {
         $this->engine = $engine;
         return $this;
+    }
+
+    /**
+     * Validates that the app instance status is as expected
+     * @param PolydockAppInstanceInterface $appInstance The app instance to validate
+     * @param PolydockAppInstanceStatus $expectedStatus The expected status
+     * @return bool True if the status is as expected, false otherwise
+     * @throws PolydockAppInstanceStatusFlowException if the status is not as expected
+     */
+    public function validateAppInstanceStatusIsExpected(
+        PolydockAppInstanceInterface $appInstance, 
+        PolydockAppInstanceStatus $expectedStatus): bool
+    {
+        if($appInstance->getStatus() !== $expectedStatus) {
+            throw new PolydockAppInstanceStatusFlowException('App instance is not in the expected status. '
+            . 'Wanted ' . $expectedStatus->value . ' but found ' . $appInstance->getStatus());
+        }
+
+        return true;
     }
 }

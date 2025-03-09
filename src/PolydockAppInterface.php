@@ -2,6 +2,8 @@
 
 namespace FreedomtechHosting\PolydockApp;
 
+use FreedomtechHosting\PolydockApp\Enums\PolydockAppInstanceStatus;
+
 interface PolydockAppInterface
 {
     /**
@@ -258,4 +260,15 @@ interface PolydockAppInterface
      * @return PolydockEngineInterface The engine instance
      */
     public function getEngine(): PolydockEngineInterface;
+
+    /**
+     * Validates that the app instance status is as expected
+     * @param PolydockAppInstanceInterface $appInstance The app instance to validate
+     * @param PolydockAppInstanceStatus $expectedStatus The expected status
+     * @return bool True if the status is as expected, false otherwise
+     * @throws PolydockAppInstanceStatusFlowException if the status is not as expected
+     */
+    public function validateAppInstanceStatusIsExpected(
+        PolydockAppInstanceInterface $appInstance, 
+        PolydockAppInstanceStatus $expectedStatus): bool;
 }
