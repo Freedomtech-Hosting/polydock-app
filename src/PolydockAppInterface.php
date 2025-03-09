@@ -271,4 +271,26 @@ interface PolydockAppInterface
     public function validateAppInstanceStatusIsExpected(
         PolydockAppInstanceInterface $appInstance, 
         PolydockAppInstanceStatus $expectedStatus): bool;
+
+
+    /**
+     * Poll the app instance deployment progress
+     * @param PolydockAppInstanceInterface $appInstance The app instance to poll
+     * @return PolydockAppInstanceStatus The status of the app instance
+     */
+    public function pollAppInstanceDeploymentProgress(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceStatus;
+
+    /**
+     * Poll the app instance upgrade progress
+     * @param PolydockAppInstanceInterface $appInstance The app instance to poll
+     * @return PolydockAppInstanceStatus The status of the app instance
+     */
+    public function pollAppInstanceUpgradeProgress(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceStatus;
+    
+    /**
+     * Poll the app instance health status
+     * @param PolydockAppInstanceInterface $appInstance The app instance to poll
+     * @return PolydockAppInstanceStatus The status of the app instance
+     */
+    public function pollAppInstanceHealthStatus(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceStatus;
 }
