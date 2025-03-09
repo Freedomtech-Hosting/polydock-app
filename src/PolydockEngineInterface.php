@@ -63,4 +63,13 @@ interface PolydockEngineInterface
      * @return bool True if the app instance has all required variables, false otherwise
      */
     public function validateAppInstanceHasAllRequiredVariables(PolydockAppInstanceInterface $appInstance): bool;
+
+    /**
+     * Process an app instance
+     * @param PolydockAppInstance $appInstance The app instance to process
+     * @throws PolydockEngineProcessPolydockAppInstanceException If the app instance cannot be processed
+     * @return void
+     */
+    public function processPolydockAppInstance(PolydockAppInstanceInterface $appInstance);
+
 } 
