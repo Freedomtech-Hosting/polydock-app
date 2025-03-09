@@ -72,6 +72,11 @@ enum PolydockAppInstanceStatus: string
 
     case REMOVED = 'removed';
 
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+
     public function getStatusMessage(): string
     {
         return match ($this) {
