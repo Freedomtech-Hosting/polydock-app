@@ -196,7 +196,7 @@ abstract class PolydockAppBase implements PolydockAppInterface
     {
         if($appInstance->getStatus() !== $expectedStatus) {
             throw new PolydockAppInstanceStatusFlowException('App instance is not in the expected status. '
-            . 'Wanted ' . $expectedStatus->value . ' but found ' . $appInstance->getStatus());
+            . 'Wanted ' . $expectedStatus->value . ' but found ' . $appInstance->getStatus()->value);
         }
 
         return true;
