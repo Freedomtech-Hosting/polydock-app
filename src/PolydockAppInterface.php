@@ -181,6 +181,27 @@ interface PolydockAppInterface
     public function postRemoveAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
 
     /**
+     * Execute pre-upgrade actions for an app instance
+     * @param PolydockAppInstanceInterface $appInstance The app instance to process
+     * @return PolydockAppInstanceInterface The processed app instance
+     */
+    public function preUpgradeAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
+     * Upgrade an app instance
+     * @param PolydockAppInstanceInterface $appInstance The app instance to upgrade
+     * @return PolydockAppInstanceInterface The processed app instance
+     */
+    public function upgradeAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
+     * Execute post-upgrade actions for an app instance
+     * @param PolydockAppInstanceInterface $appInstance The app instance to process
+     * @return PolydockAppInstanceInterface The processed app instance
+     */
+    public function postUpgradeAppInstance(PolydockAppInstanceInterface $appInstance): PolydockAppInstanceInterface;
+
+    /**
      * Set the logger instance
      * @param PolydockAppLoggerInterface $logger The logger instance
      * @return self Returns the instance for method chaining

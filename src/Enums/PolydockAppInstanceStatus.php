@@ -11,7 +11,6 @@ enum PolydockAppInstanceStatus: string
     case PRE_CREATE_COMPLETED = 'pre-create-completed';
     case PRE_CREATE_FAILED = 'pre-create-failed';
 
-
     case PENDING_CREATE = 'pending-create';
     case CREATE_RUNNING = 'create-running';
     case CREATE_COMPLETED = 'create-completed';
@@ -36,6 +35,25 @@ enum PolydockAppInstanceStatus: string
     case POST_DEPLOY_RUNNING = 'post-deploy-running';
     case POST_DEPLOY_COMPLETED = 'post-deploy-completed';
     case POST_DEPLOY_FAILED = 'post-deploy-failed';
+
+    case RUNNING_HEALTHY = 'running-healthy';
+    case RUNNING_UNRESPONSIVE = 'running-unresponsive';
+    case RUNNING_UNHEALTHY = 'running-unhealthy';
+
+    case PENDING_PRE_UPGRADE = 'pending-pre-upgrade';
+    case PRE_UPGRADE_RUNNING = 'pre-upgrade-running';
+    case PRE_UPGRADE_COMPLETED = 'pre-upgrade-completed';
+    case PRE_UPGRADE_FAILED = 'pre-upgrade-failed';
+
+    case PENDING_UPGRADE = 'pending-upgrade';
+    case UPGRADE_RUNNING = 'upgrade-running';
+    case UPGRADE_COMPLETED = 'upgrade-completed';
+    case UPGRADE_FAILED = 'upgrade-failed';
+
+    case PENDING_POST_UPGRADE = 'pending-post-upgrade';
+    case POST_UPGRADE_RUNNING = 'post-upgrade-running';
+    case POST_UPGRADE_COMPLETED = 'post-upgrade-completed';
+    case POST_UPGRADE_FAILED = 'post-upgrade-failed';
 
     case PENDING_PRE_REMOVE = 'pending-pre-remove';
     case PRE_REMOVE_RUNNING = 'pre-remove-running';
@@ -95,6 +113,21 @@ enum PolydockAppInstanceStatus: string
             self::POST_REMOVE_COMPLETED => 'Post-Remove Completed',
             self::POST_REMOVE_FAILED => 'Post-Remove Failed',
             self::REMOVED => 'Removed',
+            self::PENDING_PRE_UPGRADE => 'Pending Pre-Upgrade',
+            self::PRE_UPGRADE_RUNNING => 'Pre-Upgrade Running',
+            self::PRE_UPGRADE_COMPLETED => 'Pre-Upgrade Completed',
+            self::PRE_UPGRADE_FAILED => 'Pre-Upgrade Failed',
+            self::PENDING_UPGRADE => 'Pending Upgrade',
+            self::UPGRADE_RUNNING => 'Upgrade Running',
+            self::UPGRADE_COMPLETED => 'Upgrade Completed',
+            self::UPGRADE_FAILED => 'Upgrade Failed',
+            self::PENDING_POST_UPGRADE => 'Pending Post-Upgrade',
+            self::POST_UPGRADE_RUNNING => 'Post-Upgrade Running',
+            self::POST_UPGRADE_COMPLETED => 'Post-Upgrade Completed',
+            self::POST_UPGRADE_FAILED => 'Post-Upgrade Failed',
+            self::RUNNING_HEALTHY => 'Running Healthy',
+            self::RUNNING_UNRESPONSIVE => 'Running Unresponsive',
+            self::RUNNING_UNHEALTHY => 'Running Unhealthy',
         };
     }
 
@@ -139,6 +172,21 @@ enum PolydockAppInstanceStatus: string
             self::POST_REMOVE_COMPLETED => 'bg-green-500',
             self::POST_REMOVE_FAILED => 'bg-red-500',
             self::REMOVED => 'bg-green-500',
+            self::PENDING_PRE_UPGRADE => 'bg-yellow-500',
+            self::PRE_UPGRADE_RUNNING => 'bg-yellow-500',
+            self::PRE_UPGRADE_COMPLETED => 'bg-green-500',
+            self::PRE_UPGRADE_FAILED => 'bg-red-500',
+            self::PENDING_UPGRADE => 'bg-yellow-500',
+            self::UPGRADE_RUNNING => 'bg-yellow-500',
+            self::UPGRADE_COMPLETED => 'bg-green-500',
+            self::UPGRADE_FAILED => 'bg-red-500',
+            self::PENDING_POST_UPGRADE => 'bg-yellow-500',
+            self::POST_UPGRADE_RUNNING => 'bg-yellow-500',
+            self::POST_UPGRADE_COMPLETED => 'bg-green-500',
+            self::POST_UPGRADE_FAILED => 'bg-red-500',
+            self::RUNNING_HEALTHY => 'bg-green-500',
+            self::RUNNING_UNRESPONSIVE => 'bg-yellow-500',
+            self::RUNNING_UNHEALTHY => 'bg-red-500',
         };
     }
 
@@ -183,6 +231,21 @@ enum PolydockAppInstanceStatus: string
             self::POST_REMOVE_COMPLETED => 'post-remove-completed',
             self::POST_REMOVE_FAILED => 'post-remove-failed',
             self::REMOVED => 'removed',
+            self::PENDING_PRE_UPGRADE => 'pending-pre-upgrade',
+            self::PRE_UPGRADE_RUNNING => 'pre-upgrade-running',
+            self::PRE_UPGRADE_COMPLETED => 'pre-upgrade-completed',
+            self::PRE_UPGRADE_FAILED => 'pre-upgrade-failed',
+            self::PENDING_UPGRADE => 'pending-upgrade',
+            self::UPGRADE_RUNNING => 'upgrade-running',
+            self::UPGRADE_COMPLETED => 'upgrade-completed',
+            self::UPGRADE_FAILED => 'upgrade-failed',
+            self::PENDING_POST_UPGRADE => 'pending-post-upgrade',
+            self::POST_UPGRADE_RUNNING => 'post-upgrade-running',
+            self::POST_UPGRADE_COMPLETED => 'post-upgrade-completed',
+            self::POST_UPGRADE_FAILED => 'post-upgrade-failed',
+            self::RUNNING_HEALTHY => 'running-healthy',
+            self::RUNNING_UNRESPONSIVE => 'running-unresponsive',
+            self::RUNNING_UNHEALTHY => 'running-unhealthy',
         };
     }
 
@@ -227,6 +290,21 @@ enum PolydockAppInstanceStatus: string
             self::POST_REMOVE_COMPLETED => 'Post-Remove Completed',
             self::POST_REMOVE_FAILED => 'Post-Remove Failed',
             self::REMOVED => 'Removed',
+            self::PENDING_PRE_UPGRADE => 'Pending Pre-Upgrade',
+            self::PRE_UPGRADE_RUNNING => 'Pre-Upgrade Running',
+            self::PRE_UPGRADE_COMPLETED => 'Pre-Upgrade Completed',
+            self::PRE_UPGRADE_FAILED => 'Pre-Upgrade Failed',
+            self::PENDING_UPGRADE => 'Pending Upgrade',
+            self::UPGRADE_RUNNING => 'Upgrade Running',
+            self::UPGRADE_COMPLETED => 'Upgrade Completed',
+            self::UPGRADE_FAILED => 'Upgrade Failed',
+            self::PENDING_POST_UPGRADE => 'Pending Post-Upgrade',
+            self::POST_UPGRADE_RUNNING => 'Post-Upgrade Running',
+            self::POST_UPGRADE_COMPLETED => 'Post-Upgrade Completed',
+            self::POST_UPGRADE_FAILED => 'Post-Upgrade Failed',
+            self::RUNNING_HEALTHY => 'Running Healthy',
+            self::RUNNING_UNRESPONSIVE => 'Running Unresponsive',
+            self::RUNNING_UNHEALTHY => 'Running Unhealthy',
         };
     }
     
