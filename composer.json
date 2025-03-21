@@ -16,5 +16,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "filament/support": "^3.3"
     }
 }
