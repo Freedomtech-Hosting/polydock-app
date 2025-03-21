@@ -218,7 +218,7 @@ enum PolydockAppInstanceStatus: string implements HasColor, HasIcon, HasLabel
 
     public function getIcon(): string
     {
-        return $this->getIcon();
+        return $this->getStatusIcon();
     }   
 
     public function getStatusIcon(): string
