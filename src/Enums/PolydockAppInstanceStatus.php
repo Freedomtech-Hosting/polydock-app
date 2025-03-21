@@ -79,61 +79,78 @@ enum PolydockAppInstanceStatus: string
 
     public function getStatusMessage(): string
     {
+        return $this->getLabel();
+    }
+
+
+    public function getStatusDescription(): string
+    {
+        return $this->getLabel();
+    }
+
+
+    public function getLabel(): string
+    {
         return match ($this) {
             self::NEW => 'New',
-            self::PENDING_PRE_CREATE => 'Pending Pre-Create',   
-            self::PRE_CREATE_RUNNING => 'Pre-Create Running',
-            self::PRE_CREATE_COMPLETED => 'Pre-Create Completed',
-            self::PRE_CREATE_FAILED => 'Pre-Create Failed',
-            self::PENDING_CREATE => 'Pending Create',
-            self::CREATE_RUNNING => 'Create Running',
-            self::CREATE_COMPLETED => 'Create Completed',
-            self::CREATE_FAILED => 'Create Failed',
-            self::PENDING_POST_CREATE => 'Pending Post-Create',
-            self::POST_CREATE_RUNNING => 'Post-Create Running',
-            self::POST_CREATE_COMPLETED => 'Post-Create Completed',
-            self::POST_CREATE_FAILED => 'Post-Create Failed',
-            self::PENDING_PRE_DEPLOY => 'Pending Pre-Deploy',
-            self::PRE_DEPLOY_RUNNING => 'Pre-Deploy Running',
-            self::PRE_DEPLOY_COMPLETED => 'Pre-Deploy Completed',
-            self::PRE_DEPLOY_FAILED => 'Pre-Deploy Failed',
-            self::PENDING_DEPLOY => 'Pending Deploy',
-            self::DEPLOY_RUNNING => 'Deploy Running',
-            self::DEPLOY_COMPLETED => 'Deploy Completed',
-            self::DEPLOY_FAILED => 'Deploy Failed',
-            self::PENDING_POST_DEPLOY => 'Pending Post-Deploy',
-            self::POST_DEPLOY_RUNNING => 'Post-Deploy Running',
-            self::POST_DEPLOY_COMPLETED => 'Post-Deploy Completed',
-            self::POST_DEPLOY_FAILED => 'Post-Deploy Failed',
-            self::PENDING_PRE_REMOVE => 'Pending Pre-Remove',
-            self::PRE_REMOVE_RUNNING => 'Pre-Remove Running',
-            self::PRE_REMOVE_COMPLETED => 'Pre-Remove Completed',
-            self::PRE_REMOVE_FAILED => 'Pre-Remove Failed',
-            self::PENDING_REMOVE => 'Pending Remove',
-            self::REMOVE_RUNNING => 'Remove Running',
-            self::REMOVE_COMPLETED => 'Remove Completed',
-            self::REMOVE_FAILED => 'Remove Failed',
-            self::PENDING_POST_REMOVE => 'Pending Post-Remove',
-            self::POST_REMOVE_RUNNING => 'Post-Remove Running',   
-            self::POST_REMOVE_COMPLETED => 'Post-Remove Completed',
-            self::POST_REMOVE_FAILED => 'Post-Remove Failed',
+            self::PENDING_PRE_CREATE => 'Pending pre-create',   
+            self::PRE_CREATE_RUNNING => 'Pre-create running',
+            self::PRE_CREATE_COMPLETED => 'Pre-create completed',
+            self::PRE_CREATE_FAILED => 'Pre-create failed',
+            self::PENDING_CREATE => 'Pending create',
+            self::CREATE_RUNNING => 'Create running',
+            self::CREATE_COMPLETED => 'Create completed',
+            self::CREATE_FAILED => 'Create failed',
+            self::PENDING_POST_CREATE => 'Pending post-create',
+            self::POST_CREATE_RUNNING => 'Post-create running',
+            self::POST_CREATE_COMPLETED => 'Post-create completed',
+            self::POST_CREATE_FAILED => 'Post-create failed',
+            self::PENDING_PRE_DEPLOY => 'Pending pre-deploy',
+            self::PRE_DEPLOY_RUNNING => 'Pre-deploy running',
+            self::PRE_DEPLOY_COMPLETED => 'Pre-deploy completed',
+            self::PRE_DEPLOY_FAILED => 'Pre-deploy failed',
+            self::PENDING_DEPLOY => 'Pending deploy',
+            self::DEPLOY_RUNNING => 'Deploy running',
+            self::DEPLOY_COMPLETED => 'Deploy completed',
+            self::DEPLOY_FAILED => 'Deploy failed',
+            self::PENDING_POST_DEPLOY => 'Pending post-deploy',
+            self::POST_DEPLOY_RUNNING => 'Post-deploy running',
+            self::POST_DEPLOY_COMPLETED => 'Post-deploy completed',
+            self::POST_DEPLOY_FAILED => 'Post-deploy failed',
+            self::PENDING_PRE_REMOVE => 'Pending pre-remove',
+            self::PRE_REMOVE_RUNNING => 'Pre-remove running',
+            self::PRE_REMOVE_COMPLETED => 'Pre-remove completed',
+            self::PRE_REMOVE_FAILED => 'Pre-remove failed',
+            self::PENDING_REMOVE => 'Pending remove',
+            self::REMOVE_RUNNING => 'Remove running',
+            self::REMOVE_COMPLETED => 'Remove completed',
+            self::REMOVE_FAILED => 'Remove failed',
+            self::PENDING_POST_REMOVE => 'Pending post-remove',
+            self::POST_REMOVE_RUNNING => 'Post-remove running',   
+            self::POST_REMOVE_COMPLETED => 'Post-remove completed',
+            self::POST_REMOVE_FAILED => 'Post-remove failed',
             self::REMOVED => 'Removed',
-            self::PENDING_PRE_UPGRADE => 'Pending Pre-Upgrade',
-            self::PRE_UPGRADE_RUNNING => 'Pre-Upgrade Running',
-            self::PRE_UPGRADE_COMPLETED => 'Pre-Upgrade Completed',
-            self::PRE_UPGRADE_FAILED => 'Pre-Upgrade Failed',
-            self::PENDING_UPGRADE => 'Pending Upgrade',
-            self::UPGRADE_RUNNING => 'Upgrade Running',
-            self::UPGRADE_COMPLETED => 'Upgrade Completed',
-            self::UPGRADE_FAILED => 'Upgrade Failed',
-            self::PENDING_POST_UPGRADE => 'Pending Post-Upgrade',
-            self::POST_UPGRADE_RUNNING => 'Post-Upgrade Running',
-            self::POST_UPGRADE_COMPLETED => 'Post-Upgrade Completed',
-            self::POST_UPGRADE_FAILED => 'Post-Upgrade Failed',
-            self::RUNNING_HEALTHY => 'Running Healthy',
-            self::RUNNING_UNRESPONSIVE => 'Running Unresponsive',
-            self::RUNNING_UNHEALTHY => 'Running Unhealthy',
+            self::PENDING_PRE_UPGRADE => 'Pending pre-upgrade',
+            self::PRE_UPGRADE_RUNNING => 'Pre-upgrade running',
+            self::PRE_UPGRADE_COMPLETED => 'Pre-upgrade completed',
+            self::PRE_UPGRADE_FAILED => 'Pre-upgrade failed',
+            self::PENDING_UPGRADE => 'Pending upgrade',
+            self::UPGRADE_RUNNING => 'Upgrade running',
+            self::UPGRADE_COMPLETED => 'Upgrade completed',
+            self::UPGRADE_FAILED => 'Upgrade failed',
+            self::PENDING_POST_UPGRADE => 'Pending post-upgrade',
+            self::POST_UPGRADE_RUNNING => 'Post-upgrade running',
+            self::POST_UPGRADE_COMPLETED => 'Post-upgrade completed',
+            self::POST_UPGRADE_FAILED => 'Post-upgrade failed',
+            self::RUNNING_HEALTHY => 'Running healthy',
+            self::RUNNING_UNRESPONSIVE => 'Running unresponsive',
+            self::RUNNING_UNHEALTHY => 'Running unhealthy',
         };
+    }
+
+    public function getColor(): string
+    {
+       return $this->getStatusColor();
     }
 
     public function getStatusColor(): string
@@ -195,6 +212,11 @@ enum PolydockAppInstanceStatus: string
         };
     }
 
+    public function getIcon(): string
+    {
+        return $this->getIcon();
+    }   
+
     public function getStatusIcon(): string
     {
         return match ($this) {
@@ -254,67 +276,16 @@ enum PolydockAppInstanceStatus: string
         };
     }
 
-    public function getStatusDescription(): string
-    {
-        return match ($this) {
-            self::NEW => 'New',
-            self::PENDING_PRE_CREATE => 'Pending Pre-Create',
-            self::PRE_CREATE_RUNNING => 'Pre-Create Running',
-            self::PRE_CREATE_COMPLETED => 'Pre-Create Completed',
-            self::PRE_CREATE_FAILED => 'Pre-Create Failed',
-            self::PENDING_CREATE => 'Pending Create',
-            self::CREATE_RUNNING => 'Create Running',
-            self::CREATE_COMPLETED => 'Create Completed',
-            self::CREATE_FAILED => 'Create Failed',
-            self::PENDING_POST_CREATE => 'Pending Post-Create',
-            self::POST_CREATE_RUNNING => 'Post-Create Running',
-            self::POST_CREATE_COMPLETED => 'Post-Create Completed',
-            self::POST_CREATE_FAILED => 'Post-Create Failed',
-            self::PENDING_PRE_DEPLOY => 'Pending Pre-Deploy',
-            self::PRE_DEPLOY_RUNNING => 'Pre-Deploy Running',
-            self::PRE_DEPLOY_COMPLETED => 'Pre-Deploy Completed',
-            self::PRE_DEPLOY_FAILED => 'Pre-Deploy Failed',
-            self::PENDING_DEPLOY => 'Pending Deploy',
-            self::DEPLOY_RUNNING => 'Deploy Running',
-            self::DEPLOY_COMPLETED => 'Deploy Completed',
-            self::DEPLOY_FAILED => 'Deploy Failed',
-            self::PENDING_POST_DEPLOY => 'Pending Post-Deploy',
-            self::POST_DEPLOY_RUNNING => 'Post-Deploy Running',
-            self::POST_DEPLOY_COMPLETED => 'Post-Deploy Completed',
-            self::POST_DEPLOY_FAILED => 'Post-Deploy Failed',
-            self::PENDING_PRE_REMOVE => 'Pending Pre-Remove',
-            self::PRE_REMOVE_RUNNING => 'Pre-Remove Running',
-            self::PRE_REMOVE_COMPLETED => 'Pre-Remove Completed',
-            self::PRE_REMOVE_FAILED => 'Pre-Remove Failed',
-            self::PENDING_REMOVE => 'Pending Remove',
-            self::REMOVE_RUNNING => 'Remove Running',
-            self::REMOVE_COMPLETED => 'Remove Completed',
-            self::REMOVE_FAILED => 'Remove Failed',
-            self::PENDING_POST_REMOVE => 'Pending Post-Remove',
-            self::POST_REMOVE_RUNNING => 'Post-Remove Running',
-            self::POST_REMOVE_COMPLETED => 'Post-Remove Completed',
-            self::POST_REMOVE_FAILED => 'Post-Remove Failed',
-            self::REMOVED => 'Removed',
-            self::PENDING_PRE_UPGRADE => 'Pending Pre-Upgrade',
-            self::PRE_UPGRADE_RUNNING => 'Pre-Upgrade Running',
-            self::PRE_UPGRADE_COMPLETED => 'Pre-Upgrade Completed',
-            self::PRE_UPGRADE_FAILED => 'Pre-Upgrade Failed',
-            self::PENDING_UPGRADE => 'Pending Upgrade',
-            self::UPGRADE_RUNNING => 'Upgrade Running',
-            self::UPGRADE_COMPLETED => 'Upgrade Completed',
-            self::UPGRADE_FAILED => 'Upgrade Failed',
-            self::PENDING_POST_UPGRADE => 'Pending Post-Upgrade',
-            self::POST_UPGRADE_RUNNING => 'Post-Upgrade Running',
-            self::POST_UPGRADE_COMPLETED => 'Post-Upgrade Completed',
-            self::POST_UPGRADE_FAILED => 'Post-Upgrade Failed',
-            self::RUNNING_HEALTHY => 'Running Healthy',
-            self::RUNNING_UNRESPONSIVE => 'Running Unresponsive',
-            self::RUNNING_UNHEALTHY => 'Running Unhealthy',
-        };
-    }
-    
     public static function getValues(): array
     {
-        return array_map(fn (PolydockAppInstanceStatus $status) => $status->value, self::cases());
+        return array_column(self::cases(), 'value');
+    }
+
+    public static function getOptions(): array
+    {
+        return array_combine(
+            array_column(self::cases(), 'value'),
+            array_map(fn ($status) => $status->getLabel(), self::cases())
+        );
     }
 }
