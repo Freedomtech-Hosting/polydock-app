@@ -148,7 +148,7 @@ interface PolydockAppInstanceInterface
     /**
      * Save the app instance
      * @param array $options Additional options for the save operation
-     * @return self Returns the instance for method chaining
+     * @return bool True if the save operation was successful, false otherwise
      */
-    public function save(array $options = []);
+    public function save(array $options = []): bool;
 }
