@@ -40,7 +40,8 @@ enum PolydockAppInstanceStatus: string implements HasColor, HasIcon, HasLabel
     case POST_DEPLOY_COMPLETED = 'post-deploy-completed';
     case POST_DEPLOY_FAILED = 'post-deploy-failed';
 
-    case RUNNING_HEALTHY = 'running-healthy';
+    case RUNNING_HEALTHY_UNCLAIMED = 'running-healthy-unclaimed';
+    case RUNNING_HEALTHY_CLAIMED = 'running-healthy-claimed';
     case RUNNING_UNRESPONSIVE = 'running-unresponsive';
     case RUNNING_UNHEALTHY = 'running-unhealthy';
 
@@ -73,6 +74,11 @@ enum PolydockAppInstanceStatus: string implements HasColor, HasIcon, HasLabel
     case POST_REMOVE_RUNNING = 'post-remove-running';
     case POST_REMOVE_COMPLETED = 'post-remove-completed';
     case POST_REMOVE_FAILED = 'post-remove-failed';
+
+    case PENDING_POLYDOCK_CLAIM = 'pending-polydock-claim';
+    case POLYDOCK_CLAIM_RUNNING = 'polydock-claim-running';
+    case POLYDOCK_CLAIM_COMPLETED = 'polydock-claim-completed';
+    case POLYDOCK_CLAIM_FAILED = 'polydock-claim-failed';
 
     case REMOVED = 'removed';
 
@@ -144,9 +150,14 @@ enum PolydockAppInstanceStatus: string implements HasColor, HasIcon, HasLabel
             self::POST_UPGRADE_RUNNING => 'Post-upgrade running',
             self::POST_UPGRADE_COMPLETED => 'Post-upgrade completed',
             self::POST_UPGRADE_FAILED => 'Post-upgrade failed',
-            self::RUNNING_HEALTHY => 'Running healthy',
+            self::RUNNING_HEALTHY_UNCLAIMED => 'Running healthy (unclaimed)',
+            self::RUNNING_HEALTHY_CLAIMED => 'Running healthy (claimed)',
             self::RUNNING_UNRESPONSIVE => 'Running unresponsive',
             self::RUNNING_UNHEALTHY => 'Running unhealthy',
+            self::PENDING_POLYDOCK_CLAIM => 'Pending polydock claim',
+            self::POLYDOCK_CLAIM_RUNNING => 'Polydock claim running',
+            self::POLYDOCK_CLAIM_COMPLETED => 'Polydock claim completed',
+            self::POLYDOCK_CLAIM_FAILED => 'Polydock claim failed',
         };
     }
 
@@ -208,9 +219,14 @@ enum PolydockAppInstanceStatus: string implements HasColor, HasIcon, HasLabel
             self::POST_UPGRADE_RUNNING => 'warning',
             self::POST_UPGRADE_COMPLETED => 'success',
             self::POST_UPGRADE_FAILED => 'danger',
-            self::RUNNING_HEALTHY => 'success',
+            self::RUNNING_HEALTHY_UNCLAIMED => 'success',
+            self::RUNNING_HEALTHY_CLAIMED => 'success',
             self::RUNNING_UNRESPONSIVE => 'warning',
             self::RUNNING_UNHEALTHY => 'danger',
+            self::PENDING_POLYDOCK_CLAIM => 'warning',
+            self::POLYDOCK_CLAIM_RUNNING => 'warning',
+            self::POLYDOCK_CLAIM_COMPLETED => 'success',
+            self::POLYDOCK_CLAIM_FAILED => 'danger',
         };
     }
 
@@ -272,9 +288,14 @@ enum PolydockAppInstanceStatus: string implements HasColor, HasIcon, HasLabel
             self::POST_UPGRADE_RUNNING => 'heroicon-o-arrow-path',
             self::POST_UPGRADE_COMPLETED => 'heroicon-o-check',
             self::POST_UPGRADE_FAILED => 'heroicon-o-x-mark',
-            self::RUNNING_HEALTHY => 'heroicon-o-check-circle',
+            self::RUNNING_HEALTHY_UNCLAIMED => 'heroicon-o-check-circle',
+            self::RUNNING_HEALTHY_CLAIMED => 'heroicon-o-check-circle',
             self::RUNNING_UNRESPONSIVE => 'heroicon-o-exclamation-triangle',
             self::RUNNING_UNHEALTHY => 'heroicon-o-x-circle',
+            self::PENDING_POLYDOCK_CLAIM => 'heroicon-o-clock',
+            self::POLYDOCK_CLAIM_RUNNING => 'heroicon-o-arrow-path',
+            self::POLYDOCK_CLAIM_COMPLETED => 'heroicon-o-check',
+            self::POLYDOCK_CLAIM_FAILED => 'heroicon-o-x-mark',
         };
     }
 
