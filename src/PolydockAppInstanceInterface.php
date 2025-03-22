@@ -144,4 +144,11 @@ interface PolydockAppInstanceInterface
      * @return string The unique project name
      */
     public function generateUniqueProjectName(string $prefix): string;
+
+    /**
+     * Save the app instance
+     * @param array $options Additional options for the save operation
+     * @return self Returns the instance for method chaining
+     */
+    public function save(array $options = []);
 }
