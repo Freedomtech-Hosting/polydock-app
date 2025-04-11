@@ -151,4 +151,34 @@ interface PolydockAppInstanceInterface
      * @return bool True if the save operation was successful, false otherwise
      */
     public function save(array $options = []);
+
+    /**
+     * Set the app URL for the app instance
+     * @param string $url The URL to set
+     * @param string|null $oneTimeLoginUrl The one-time login URL to set
+     * @param int|null $numberOfHoursForOneTimeLoginUrl The number of hours for the one-time login URL
+     * @return self Returns the instance for method chaining
+     */
+    public function setAppUrl(string $url, ?string $oneTimeLoginUrl = null, ?int $numberOfHoursForOneTimeLoginUrl = 24): self;
+
+    /**
+     * Set the one-time login URL for the app instance
+     * @param string $url The URL to set
+     * @param int $numberOfHours The number of hours for the one-time login URL
+     * @param bool $setOnlyDontSave Whether to set only and not save the one-time login URL
+     * @return self Returns the instance for method chaining
+     */
+    public function setOneTimeLoginUrl(string $url, int $numberOfHours = 24, bool $setOnlyDontSave = false): self;
+
+    /**
+     * Get the generated app admin username
+     * @return string The generated app admin username
+     */
+    public function getGeneratedAppAdminUsername(): string;
+
+    /**
+     * Get the generated app admin password
+     * @return string The generated app admin password
+     */
+    public function getGeneratedAppAdminPassword(): string;
 }
